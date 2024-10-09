@@ -1,0 +1,89 @@
+﻿@using ConversationApp.Data
+@model ConversationApp.Framework.Models.UserInputModel
+@{
+    ViewData["Title"] = "Conversation";
+    ViewData["HeaderType"] = "Header";
+    ViewData["FooterType"] = "FooterConversation";
+}
+
+
+<main class="main-conversations">
+    <section class="container conversations-info">
+        @if (Model != null){
+            <p><strong>Level: </strong>@(Model.Conversation?.Level ?? "N/A")</p>
+            <p><strong>Context: </strong>@(Model.Conversation?.Context ?? "N/A")</p>
+            <p><strong>Person: </strong>@(Model.ConversationContent?.Person ?? "N/A")</p>
+        }
+        else{
+            <p>Conversation header is null.</p>
+        }
+        
+    </section>
+
+    <section class="container conversations-instructions">
+        <div data-role="collapsible-set" class="instructions-accordion">
+            <div data-role="collapsible" data-collapsed="false">
+                <h6>Instructions</h6>
+                <p>
+                    Take turns with your partner to say the phrase in the following prompt in the language you are practicing. You are person A so you start. When you complete your phrase let your partner reply and press the next button in the prompt to reveal the following phrase you have to say.
+                    Tap on the highlighted words for help.
+                    Take your time and enjoy the activity!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container message-block">
+            <!-- Existing message blocks -->
+            <!-- Display area for the conversation prompt -->
+        <div id="conversationPrompt">
+       <ul>
+        @if (Model != null && Model.conversationContent != null && Model.Hints != null)
+        {
+            @foreach (var content in Model.conversationContent){
+
+                <li class="@(content.Person == "A" ? "message-blue" : "message-orange")" style="list-style-type: none;">
+                    <p class="message-content">     
+                 @{
+                    // Split the content line into words
+                    var words = content.Line.Split(' ');
+
+                    // Iterate through each word
+                    for (int i = 0; i < words.Length; i++)
+                    {
+                        var word = words[i];
+                        var hint = Model.Hints.FirstOrDefault(h => h.Word == word);
+
+                        // Check if the word has a corresponding hint
+                        if (hint != null)
+                        {
+                            // If the word has a hint, underline it and display the hint in a popup
+                            <a href="#popupInfo_@(i)" data-rel="popup" class="popup-text" data-transition="pop" title="Learn more"><u>@word</u></a>
+                            <div data-role="popup" id="popupInfo_@(i)" class="ui-content popup-div" data-theme="a">  
+                                <p>@hint.TargetLanguageWord</p>
+                            </div>
+                        }
+                        else
+                        {
+                            // If the word doesn't have a hint, display it normally
+                            @word
+                        }
+
+                        // Add a space after each word except the last one
+                        if (i < words.Length - 1)
+                        {
+                            <text> </text>
+                        }
+                    }
+                }
+                </p>
+            </li>
+            }
+        }
+    </ul>
+</div>
+        
+
+            <button id="btnNext" type="submit">Next</button>
+    </section>
+</main>

@@ -1,0 +1,33 @@
+﻿@using ConversationApp.Data.Enums
+@model ConversationApp.Framework.Models.UserProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["HeaderType"] = "Header";
+    ViewData["FooterType"] = "FooterNav";
+}
+
+
+<main>
+
+    <section class="profile-block">
+        @if (User.Identity.IsAuthenticated && Model != null && Model.User != null)
+        {       
+        <img src="~/images/avatar.png" alt="Avatar" class="avatar">
+        <h6>@Model.User.Name</h6>
+        <strong class="joined-tag">Joined on <span>@(Model.User?.JoinDate?.ToString("dd MMMM yyyy") ?? "N/A")</span></strong>
+        
+       }
+        else{
+            <p>Profile data is null or not available.</p>
+        }
+    </section>
+
+    <section>
+        <ul data-role="listview" class="ui-nodisc-icon ui-alt-icon">
+            <li><a data-transition="slide" data-ajax="false" class="" asp-area="" asp-controller="User" asp-action="ProfileSettings"><i class="fas fa-cog margin-icon"></i>Settings</a></li>
+            <li><a data-transition="slide" data-ajax="false" class="" asp-area="" asp-controller="User" asp-action="ProfileLang"><i class="fas fa-globe margin-icon"></i>Languages</a></li>
+            <li><a data-transition="slide" data-ajax="false" class="" asp-area="" asp-controller="User" asp-action="ProfileLang"><i class="fas fa-bullseye margin-icon"></i>Set goals</a></li>
+        </ul>
+    </section>
+
+</main>

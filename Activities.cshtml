@@ -1,0 +1,28 @@
+﻿@using ConversationApp.Data.Enums
+@model ConversationApp.Framework.Models.UserProfileModel
+@{
+    ViewData["Title"] = "Activity Selection";
+    ViewData["HeaderType"] = "Header";
+    ViewData["FooterType"] = "FooterNav";
+}
+
+<!-- content goes here -->
+
+<main>
+
+    <section class="container conversations-desc">
+        <p>Welcome to the LVS Role Plays app! Select the type of activity you want to practice.</p>
+    </section>
+
+    <section class="container activities-block">
+        <a data-transition="slide" data-ajax="false" asp-area="" asp-controller="User" asp-action="ConversationContext">
+            <button type="" class="">Conversations</button>
+        </a>
+        <a data-transition="slide" data-ajax="false" asp-area="" asp-controller="User" asp-action="ConversationContext">
+            <button type="" class="">Info Gaps</button>
+        </a>
+    
+       
+    </section>
+
+</main>

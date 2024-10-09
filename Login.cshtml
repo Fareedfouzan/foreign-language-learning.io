@@ -1,0 +1,26 @@
+﻿@using ConversationApp.Data.Enums
+@model ConversationApp.Framework.Models.UserProfileModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<main class="container main-login">
+
+    <!-- main content -->
+    <section class="container login-desc">
+        <img src="~/images/Logo.svg" alt="">
+        <h1>LVS Role Plays</h1>
+        <p>Welcome to the LVS Role Plays app!</p>
+    </section>
+     <section class="">
+   <p>
+    <a data-ajax="false" asp-controller="Home" asp-action="Login">
+        <button type="" class="login-btn">
+        <img src="~/images/google.svg" alt="">
+        <span class="">Continue with Google</span>
+        </button>
+    </a>
+    </p>
+</section>
+
+</main>

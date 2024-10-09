@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ConversationApp</title>
+    <link rel="stylesheet" href="~/lib/jquery-mobile/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="~/lib/jquery-ui/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/fontawesome.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/regular.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/solid.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @*<link rel="stylesheet" href="~/ConversationApp.styles.css" asp-append-version="true" />*@
+
+</head>
+<body data-role="page" data-dom-cache="false">
+
+    @if (ViewBag.HeaderType == "Header")
+    {
+        @Html.Partial("_Header")
+    }
+    else if (ViewBag.HeaderType == "HeaderBack")
+    {
+        @Html.Partial("_HeaderBack")
+    }
+
+    @RenderBody()
+
+    @if (ViewBag.FooterType == "FooterNav")
+    {
+        @Html.Partial("_FooterNav")
+    }
+    else if (ViewBag.FooterType == "FooterConversation")
+    {
+        @Html.Partial("_FooterConversation")
+    }
+
+    <script src="~/lib/jquery/dist/jquery-1.11.1.min.js"></script>
+    @*<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>*@
+    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/lib/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

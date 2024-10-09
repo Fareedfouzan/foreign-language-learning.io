@@ -1,0 +1,71 @@
+﻿@using ConversationApp.Data
+@model ConversationApp.Framework.Models.UserInputModel
+@{
+    ViewData["Title"] = "Start Conversation";
+    ViewData["HeaderType"] = "HeaderBack";
+}
+
+<!-- content goes here -->
+<main>
+    <section class="container conversations-info">
+        @if(Model != null){
+        <p><strong>Level: </strong>@(Model.Conversation?.Level ?? "N/A")</p>
+        <p><strong>Context: </strong>@(Model.Conversation?.Context ?? "N/A")</p>
+        <p><strong>Person: </strong>@(Model.ConversationContent?.Person ?? "N/A")</p>
+        }
+        else{
+          <p>Conversation Header is Null</p>
+        }
+    </section>
+
+    <section class="conversations-instructions">
+        <div data-role="collapsible-set" class="instructions-accordion">
+            <div data-role="collapsible" data-collapsed="false">
+                <h6>Instructions</h6>
+                <p>
+                    Take turns with your partner to say the phrase in the following prompt in the language you are practicing. You are person A so you start. When you complete your phrase let your partner reply and press the next button in the prompt to reveal the following phrase you have to say.
+Tap on the highlighted words for help.
+Take your time and enjoy the activity!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container start-block">
+        <a data-ajax="false" asp-area="" asp-controller="User" asp-action="ConversationLine" asp-route-level="@Model.Conversation?.Level" asp-route-context="@Model.Conversation?.Context" asp-route-subcontext="@Model.Conversation?.Subcontext" data-transition="slide" class="Start">
+            <button type="" class="">START</button>
+        </a>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        function startConversation(person){
+            // Make an AJAX request to the server
+            $.ajax({
+                url: '@Url.Action("ConversationStart", "User")',
+                type: 'GET',
+                data: { person: person },
+                success: function (data) {
+                    // Handle success response
+                    // Redirect or handle the response as needed
+                    $('.persons-block').html(data);
+                },
+                error: function (xhr, status, error) {
+                    // Handle error response
+                    console.error('Request failed with status', status);
+                }
+            });
+        }
+
+         // Event listener for clicking on Person A or Person B buttons
+      $('.person').click(function (e) {
+        e.preventDefault(); // Prevent default link behavior
+        var person = $(this).data('person');
+        startConversation(person);
+       });
+    });
+</script>
+
+</main>

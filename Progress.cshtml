@@ -1,0 +1,258 @@
+﻿@using ConversationApp.Data.Enums
+@model ConversationApp.Framework.Models.UserProfileModel
+@{
+    ViewData["Title"] = "Progress";
+    ViewData["HeaderType"] = "Header";
+    ViewData["FooterType"] = "FooterNav";
+}
+
+<!-- content goes here -->
+
+<main>
+
+    <section>
+        <div id="progress-tabs">
+            <ul class="">
+                <li><a href="#first-lang">English</a></li>
+                <li><a href="#second-lang">Spanish</a></li>
+                <li><a href="#third-lang">French</a></li>
+            </ul>
+            <div id="first-lang">
+                <div data-role="collapsibleset" class="progress-accordion" data-iconpos="none">
+
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>
+                    Level A1
+                    <div id="progressbar" role="progressbar" aria-valuemin="0" class="ui-progressbar ui-corner-all ui-widget ui-widget-content" aria-valuemax="100">
+                        <div class="ui-progressbar-value ui-corner-left ui-widget-header" style="width: 37%;"></div>
+                    </div>
+                </h3>
+                <div class="progress-steps">
+                    <div class="step step-completed">
+                        <div>
+                            <div class="step-circle"><i class="fa fa-check"></i></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 1</div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">A</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">B</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                        </div>
+                    </div><div class="step">
+                        <div>
+                            <div class="step-circle"></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 1</div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">A</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key">B</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                        </div>
+                    </div><div class="step">
+                        <div>
+                            <div class="step-circle"></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 2</div>
+                            <div class="step-counter">
+                                <div class="counter-key">A</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key">B</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    Level A2
+                    <div id="progressbar" role="progressbar" aria-valuemin="0" class="ui-progressbar ui-corner-all ui-widget ui-widget-content" aria-valuemax="100">
+                        <div class="ui-progressbar-value ui-corner-left ui-widget-header" style="width: 10%;"></div>
+                    </div>
+                </h3>
+                                <div class="progress-steps">
+                    <div class="step step-completed">
+                        <div>
+                            <div class="step-circle"><i class="fa fa-check"></i></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 3</div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">A</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">B</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                        </div>
+                    </div><div class="step">
+                        <div>
+                            <div class="step-circle"></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 4</div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">A</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">B</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                        </div>
+                    </div><div class="step">
+                        <div>
+                            <div class="step-circle"></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 5</div>
+                            <div class="step-counter">
+                                <div class="counter-key">A</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key">B</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    Level B1
+                    <div id="progressbar" role="progressbar" aria-valuemin="0" class="ui-progressbar ui-corner-all ui-widget ui-widget-content" aria-valuemax="100">
+                        <div class="ui-progressbar-value ui-corner-left ui-widget-header" style="width: 0%;"></div>
+                    </div>
+                </h3>
+                                <div class="progress-steps">
+                    <div class="step step-completed">
+                        <div>
+                            <div class="step-circle"><i class="fa fa-check"></i></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 6</div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">A</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">B</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                        </div>
+                    </div><div class="step">
+                        <div>
+                            <div class="step-circle"></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 7</div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">A</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">B</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                        </div>
+                    </div><div class="step">
+                        <div>
+                            <div class="step-circle"></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 8</div>
+                            <div class="step-counter">
+                                <div class="counter-key">A</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key">B</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    Level B2
+                    <div id="progressbar" role="progressbar" aria-valuemin="0" class="ui-progressbar ui-corner-all ui-widget ui-widget-content" aria-valuemax="100">
+                        <div class="ui-progressbar-value ui-corner-left ui-widget-header" style="width: 100%;"></div>
+                    </div>
+                </h3>
+                                <div class="progress-steps">
+                    <div class="step step-completed">
+                        <div>
+                            <div class="step-circle"><i class="fa fa-check"></i></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 9</div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">A</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">B</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                        </div>
+                    </div><div class="step">
+                        <div>
+                            <div class="step-circle"></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 10</div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">A</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key counter-completed">B</div>
+                                <div class="counter-value">1</div>
+                            </div>
+                        </div>
+                    </div><div class="step">
+                        <div>
+                            <div class="step-circle"></div>
+                        </div>
+                        <div>
+                            <div class="step-title">Topic 11</div>
+                            <div class="step-counter">
+                                <div class="counter-key">A</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                            <div class="step-counter">
+                                <div class="counter-key">B</div>
+                                <div class="counter-value">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            <div id="second-lang"></div>
+            <div id="third-lang"></div>
+        </div>
+        
+    </section>
+
+
+
+</main>

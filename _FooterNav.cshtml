@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<footer class="footer-nav">
+    <!-- footer content -->
+    <div class="bottom-nav">
+        <ul class="list-items">
+            <li class="@("item " + (ViewData["Title"] == "Home" ? "active" : ""))">
+                <a class="link" data-ajax="false" asp-area="" asp-controller="User" asp-action="Home">
+                    <i class="fas fa-home fa-2x"></i>
+                </a>
+            </li>
+            <li class="@("item " + (ViewData["Title"] == "Activity Selection" ? "active" : ""))">
+                <a class="link" data-ajax="false" asp-area="" asp-controller="User" asp-action="Activities">
+                    <i class="fas fa-dumbbell fa-2x"></i>
+                </a>
+            </li>
+            <li class="@("item " + (ViewData["Title"] == "Progress" ? "active" : ""))">
+                <a class="link" data-ajax="false" asp-area="" asp-controller="User" asp-action="Progress">
+                    <i class="fas fa-flag fa-2x"></i>
+                </a>
+            </li>
+            <li class="@("item " + (ViewData["Title"] == "Profile" ? "active" : ""))">
+                <a class="link" data-ajax="false" asp-area="" asp-controller="User" asp-action="Profile">
+                    <i class="fas fa-user fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+

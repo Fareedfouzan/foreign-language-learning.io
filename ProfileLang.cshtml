@@ -1,0 +1,59 @@
+﻿@using ConversationApp.Data.Enums
+@model ConversationApp.Framework.Models.UserProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["HeaderType"] = "HeaderBack";
+    ViewData["FooterType"] = "FooterNav";
+}
+
+
+<main>
+    <!-- main content -->
+
+    <section>
+        <h6 class="text-heading">Select language to practice:</h6>
+        <form id="languageForm" method="post" data-iconpos="right" class="lang-list" asp-controller="User" asp-action="SaveLanguage">
+            <input type="radio" name="radio-choice-w-6" id="radio-choice-w-6a" value="on">
+            <label for="radio-choice-w-6a"><img src="~/images/de.png" alt="German" class="ui-li-icon">German</label>
+            <input type="radio" name="radio-choice-w-6" id="radio-choice-w-6b" value="1" checked="checked">
+            <label for="radio-choice-w-6b"><img src="~/images/gb.png" alt="English" class="ui-li-icon">English</label>
+            <input type="radio" name="radio-choice-w-6" id="radio-choice-w-6c" value="other">
+            <label for="radio-choice-w-6c"><img src="~/images/fr.png" alt="French" class="ui-li-icon">French</label>
+            <input type="radio" name="radio-choice-w-6" id="radio-choice-w-6d" value="2">
+            <label for="radio-choice-w-6d"><img src="~/images/it.png" alt="Italian" class="ui-li-icon">Italian</label>
+            <input type="radio" name="radio-choice-w-6" id="radio-choice-w-6e" value="3">
+            <label for="radio-choice-w-6e"><img src="~/images/sp.png" alt="Spanish" class="ui-li-icon">Spanish</label>
+
+            <button class="ui-btn-inline save-btn" type="submit"><i class="fas fa-save margin-icon"></i>Save</button>
+        </form>
+    </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Handle form submission
+        $('#languageForm').submit(function (event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get the selected language value
+            var languageId = $('input[name=radio-choice-w-6]:checked', '#languageForm').val();
+
+            // Send an AJAX request to the server to save the language selection
+            $.ajax({
+                type: 'POST',
+                url: $('#languageForm').attr("action"),
+                data: { languageId: languageId },
+                success: function (response) {
+                    // Handle success response if needed
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    // Handle error response if needed
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+</main>

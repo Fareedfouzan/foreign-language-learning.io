@@ -1,0 +1,65 @@
+﻿@model ConversationApp.Framework.Models.UserInputModel
+@using ConversationApp.Data
+
+@{
+    ViewData["Title"] = "Person Selection";
+    ViewData["HeaderType"] = "HeaderBack";
+}
+
+<!-- content goes here -->
+
+<main>
+    <section class="container conversations-info">
+       @if(Model != null){
+        <p><strong>Level: </strong>@(Model.Conversation?.Level ?? "N/A")</p>
+        <p><strong>Context: </strong>@(Model.Conversation?.Context ?? "N/A")</p>
+        }
+        else{
+          <p>Conversation Header is Null</p>
+        }
+    </section>
+
+    <section class="container conversations-desc">
+        <p>
+            Select a role to see your part of the text. Proceed to say in turns each phrase in the language you are practising.
+        </p>
+    </section>
+     
+    <section class="container persons-block">
+        
+        <a data-ajax="false" asp-area="" asp-controller="User" asp-action="ConversationStart"  asp-route-level="@Model.Conversation?.Level" asp-route-context="@Model.Conversation?.Context" asp-route-subcontext="@Model.Conversation?.Subcontext" data-transition="slide" class="person">
+            <button type="">Person A</button>
+        </a>
+        <a data-ajax="false" asp-area="" asp-controller="User" asp-action="ConversationStart"  asp-route-level="@Model.Conversation?.Level" asp-route-context="@Model.Conversation?.Context" asp-route-subcontext="@Model.Conversation?.Subcontext" data-transition="slide" class="person">
+            <button type="">Person B</button>
+        </a>
+    </section>
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Function to handle the AJAX request
+        function loadConversationPerson(level, context, subcontext) {
+            $.ajax({
+                url: '@Url.Action("ConversationPerson", "User")', // Modify the URL as per your application's routing configuration
+                type: 'GET',
+                data: { level: level, context: context, subcontext: subcontext},
+                success: function (result) {
+                    $('.level-accordion').html(result);
+                },
+                error: function () {
+                    // Handle error
+                }
+            });
+        }
+
+        // Event listener for selecting context
+        $('.context-accordion').click(function () {
+            var level = $(this).data('level');
+            var context = $(this).data('context');
+            var subcontext = $(this).data('subcontext');
+            loadConversationPerson(level, context, subcontext);
+        });
+    });
+</script>
+</main>
